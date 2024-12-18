@@ -14,8 +14,8 @@ namespace QuizGame
         private CellDataBundle[] _possibleBundles;
         private List<List<int>> _possibleTargets = new List<List<int>>();
 
-        private int _currentBundleIndex;//Among all bundles
-        private int _currentAnswerIndex;//Only among POSSIBLE targets
+        private int _currentBundleIndex;
+        private int _currentAnswerIndex;
 
         public void SetAllTargets(CellDataBundle[] possibleBundles)
         {

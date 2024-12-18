@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4200544653119671638
+--- !u!1 &5984065335075139011
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4200544653119671639}
-  - component: {fileID: 4200544653119671720}
+  - component: {fileID: 5984065335075139020}
+  - component: {fileID: 5984065335075139021}
   m_Layer: 0
-  m_Name: LevelController
+  m_Name: EffectsController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4200544653119671639
+--- !u!4 &5984065335075139020
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4200544653119671638}
+  m_GameObject: {fileID: 5984065335075139011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 297.93652, y: 249.38274, z: -28.843016}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,21 +31,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4200544653119671720
+--- !u!114 &5984065335075139021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4200544653119671638}
+  m_GameObject: {fileID: 5984065335075139011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8daf1ce451fbc644fa8bbcae1204b5b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fa43ff00b37ad34abaac1a9e92ef469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _UIController: {fileID: 0}
-  _answerChecker: {fileID: 0}
-  levelsTemplate: {fileID: 11400000, guid: 7c2a76fe3546e0647a91d632440f05e5, type: 2}
-  possibleBundles:
-  - {fileID: 11400000, guid: 0d110a3223f478d4abc896fb362b7b9d, type: 2}
-  - {fileID: 11400000, guid: 2cab293ac358ae44eb1c932d51e30104, type: 2}
