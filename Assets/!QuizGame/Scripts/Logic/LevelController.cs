@@ -12,6 +12,9 @@ namespace QuizGame
         private AnswerChecker _answerChecker;
 
         [SerializeField]
+        private EffectsController _effectsController;
+
+        [SerializeField]
         private LevelsTemplate levelsTemplate;
 
         [SerializeField]
@@ -23,15 +26,19 @@ namespace QuizGame
         {
             _answerChecker.SetAllTargets(possibleBundles);
 
-            _currentLevel = -1;
-
-            NextLevel(true);
+            Restart();
         }
 
 
         public void NextLevel(bool bounceEffect)
         {
             _currentLevel++;
+
+            if (_currentLevel >= levelsTemplate.levels.Length)
+            {
+                _UIController.EndGame();
+                return;
+            }
 
             int randBundle = Random.Range(0, possibleBundles.Length);
 
@@ -42,6 +49,13 @@ namespace QuizGame
                 possibleBundles[randBundle],
                 currentAnswerIndex,
                 bounceEffect);
+        }
+
+        public void Restart()
+        {
+            _currentLevel = -1;
+
+            _UIController.StartGame();
         }
     }
 

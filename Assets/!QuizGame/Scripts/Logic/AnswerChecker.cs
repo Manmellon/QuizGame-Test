@@ -11,6 +11,9 @@ namespace QuizGame
         [SerializeField]
         private LevelController _levelController;
 
+        [SerializeField]
+        private EffectsController _effectController;
+
         private CellDataBundle[] _possibleBundles;
         private List<List<int>> _possibleTargets = new List<List<int>>();
 
@@ -51,24 +54,24 @@ namespace QuizGame
         {
             if (cell.CellData.Identifier.Equals(_possibleBundles[_currentBundleIndex].CellData[_currentAnswerIndex].Identifier))
             {
-                CorrectAnswer();
+                CorrectAnswer(cell);
             }
             else
             {
-                WrongAnswer();
+                WrongAnswer(cell);
             }
         }
 
-        private void CorrectAnswer()
+        private void CorrectAnswer(Cell cell)
         {
             _possibleTargets[_currentBundleIndex].Remove(_currentAnswerIndex);
 
-            _levelController.NextLevel(false);
+            _effectController.CorrectAnswerEffect(cell);
         }
 
-        private void WrongAnswer()
+        private void WrongAnswer(Cell cell)
         {
-
+            _effectController.WrongAnswerEffect(cell);
         }
     }
 

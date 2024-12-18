@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ namespace QuizGame
 
         public CellData CellData => _cellData;
 
+        public Transform objectInsideTransform => _image.transform;
+
         public void Init(CellData cellData, System.Action<Cell> ButtonAction, bool bounceEffect)
         {
             _cellData = cellData;
@@ -26,7 +29,9 @@ namespace QuizGame
             _button.onClick.RemoveAllListeners();
 
             _button.onClick.AddListener(() => ButtonAction(this));
+
+            if (bounceEffect)
+                transform.DOShakeScale(1.0f);
         }
     }
-
 }

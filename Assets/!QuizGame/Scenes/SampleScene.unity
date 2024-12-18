@@ -305,6 +305,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c16f5d6357decc45824881bec1797a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1869884473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5984065335075139021, guid: 8416442ad37040547b97a3ea8be0c3a6, type: 3}
+  m_PrefabInstance: {fileID: 5984065335825121780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa43ff00b37ad34abaac1a9e92ef469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2223868862492316045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -316,6 +327,14 @@ PrefabInstance:
       propertyPath: _answerChecker
       value: 
       objectReference: {fileID: 1306007038}
+    - target: {fileID: 2223868862762957728, guid: b3f739690a354654eaa9b9277d04c825, type: 3}
+      propertyPath: _levelController
+      value: 
+      objectReference: {fileID: 239417984}
+    - target: {fileID: 2223868862762957728, guid: b3f739690a354654eaa9b9277d04c825, type: 3}
+      propertyPath: _effectsController
+      value: 
+      objectReference: {fileID: 1869884473}
     - target: {fileID: 2223868862762957729, guid: b3f739690a354654eaa9b9277d04c825, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -469,6 +488,10 @@ PrefabInstance:
       propertyPath: _answerChecker
       value: 
       objectReference: {fileID: 1306007038}
+    - target: {fileID: 4200544653119671720, guid: 8867d602c5bc2df41b188b85b8ea529f, type: 3}
+      propertyPath: _effectsController
+      value: 
+      objectReference: {fileID: 1869884473}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8867d602c5bc2df41b188b85b8ea529f, type: 3}
 --- !u!1001 &5984065335825121780
@@ -530,6 +553,10 @@ PrefabInstance:
       propertyPath: _UIController
       value: 
       objectReference: {fileID: 534882861}
+    - target: {fileID: 5984065335075139021, guid: 8416442ad37040547b97a3ea8be0c3a6, type: 3}
+      propertyPath: _levelController
+      value: 
+      objectReference: {fileID: 239417984}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8416442ad37040547b97a3ea8be0c3a6, type: 3}
 --- !u!1001 &6515593151165631737
@@ -595,5 +622,9 @@ PrefabInstance:
       propertyPath: _levelController
       value: 
       objectReference: {fileID: 239417984}
+    - target: {fileID: 6515593152066885895, guid: f3237b939e238ba40b2a2386f8de31ae, type: 3}
+      propertyPath: _effectController
+      value: 
+      objectReference: {fileID: 1869884473}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3237b939e238ba40b2a2386f8de31ae, type: 3}

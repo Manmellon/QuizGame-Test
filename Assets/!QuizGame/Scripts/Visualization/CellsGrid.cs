@@ -87,6 +87,14 @@ namespace QuizGame
                 _cells[i].gameObject.SetActive(false);
             }
         }
+
+        public void HideAll()
+        {
+            for (int i = 0; i < _cells.Count; i++)
+            {
+                _cells[i].gameObject.SetActive(false);
+            }
+        }
     }
 }
 
