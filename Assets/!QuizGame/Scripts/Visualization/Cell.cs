@@ -31,7 +31,12 @@ namespace QuizGame
             _button.onClick.AddListener(() => ButtonAction(this));
 
             if (bounceEffect)
-                transform.DOShakeScale(1.0f);
+            {
+                transform.localScale = Vector3.zero;
+
+                transform.DOScale(1.0f, 0.5f).SetEase(Ease.OutBounce);
+            }
+                
         }
     }
 }

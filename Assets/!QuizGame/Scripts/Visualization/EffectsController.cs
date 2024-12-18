@@ -13,12 +13,14 @@ public class EffectsController : MonoBehaviour
 
     public void CorrectAnswerEffect(Cell cell)
     {
-        cell.objectInsideTransform.DOShakeScale(1.0f).onComplete = () => { _levelController.NextLevel(false); };
+        cell.objectInsideTransform.localScale = Vector3.zero;
+
+        cell.objectInsideTransform.DOScale(1, 1).SetEase(Ease.OutBounce).onComplete = () => { _levelController.NextLevel(false); };
     }
 
     public void WrongAnswerEffect(Cell cell)
     {
-        cell.objectInsideTransform.DOShakePosition(1.0f, new Vector3(20, 0, 0));
+        cell.objectInsideTransform.DOShakePosition(1.0f, new Vector3(20, 0, 0)).SetEase(Ease.InBounce);
     }
 
     public void StartGameEffect()
