@@ -28,9 +28,9 @@ namespace QuizGame
         {
             _grid.constraintCount = level.gridSize.x;
 
-            int widthCell = (int)(_gridRect.rect.width / _grid.constraintCount);
-            int heightCell = (int)(_gridRect.rect.height / (level.cellsCount / widthCell));
-
+            int widthCell = (int)(_gridRect.rect.width / level.gridSize.x);
+            int heightCell = (int)(_gridRect.rect.height / level.gridSize.y);
+            
             int resultSize = Mathf.Min(widthCell, heightCell);
             _grid.cellSize = new Vector2(resultSize, resultSize);
         }
@@ -39,7 +39,7 @@ namespace QuizGame
         {
             //Create variants
             List<CellData> possibleAnswers = new List<CellData>();
-            for (int i = 0; i < cellsCount; i++)
+            for (int i = 0; i < cellDataBundle.CellData.Length; i++)
             {
                 possibleAnswers.Add(cellDataBundle.CellData[i]);
             }

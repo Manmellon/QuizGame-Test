@@ -20,6 +20,7 @@ namespace QuizGame
             _cellData = cellData;
 
             _image.sprite = _cellData.Sprite;
+            _image.preserveAspect = true;
 
             _button.onClick.RemoveAllListeners();
 

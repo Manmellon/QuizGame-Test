@@ -59,7 +59,7 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 250, y: 250}
   m_Spacing: {x: 0, y: 0}
-  m_Constraint: 2
+  m_Constraint: 1
   m_ConstraintCount: 3
 --- !u!114 &3676362990902264246
 MonoBehaviour:
@@ -76,4 +76,3 @@ MonoBehaviour:
   _grid: {fileID: 3676362990902264245}
   _gridRect: {fileID: 3676362990902264244}
   _cellPrefab: {fileID: 2229296739487655390, guid: ec5db74de6943ee4c87d245f5ffc9ac3, type: 3}
-  _size: {x: 0, y: 0}
