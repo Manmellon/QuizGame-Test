@@ -17,11 +17,13 @@ namespace QuizGame
 
         private List<Cell> _cells = new List<Cell>();
 
-        public void Init(Level level, CellDataBundle cellDataBundle, System.Action<Cell> ButtonAction, bool bounceEffect)
+        public void Init(Level level, CellDataBundle cellDataBundle, int currentAnswerIndex, System.Action<Cell> ButtonAction, bool bounceEffect)
         {
             InitGrid(level);
 
-            InitCells(cellDataBundle, level.cellsCount, ButtonAction, bounceEffect);
+            List<CellData> chosenAnswers = CreateAnswers(level.cellsCount, cellDataBundle, currentAnswerIndex);
+
+            InitCells(chosenAnswers, level.cellsCount, ButtonAction, bounceEffect);
         }
 
         private void InitGrid(Level level)
@@ -35,15 +37,34 @@ namespace QuizGame
             _grid.cellSize = new Vector2(resultSize, resultSize);
         }
 
-        private void InitCells(CellDataBundle cellDataBundle, int cellsCount, System.Action<Cell> ButtonAction, bool bounceEffect)
+        private List<CellData> CreateAnswers(int cellsCount, CellDataBundle cellDataBundle, int currentAnswerIndex)
         {
-            //Create variants
-            List<CellData> possibleAnswers = new List<CellData>();
-            for (int i = 0; i < cellDataBundle.CellData.Length; i++)
+            List<CellData> possibleAnswers = new List<CellData>(cellDataBundle.CellData);
+
+            CellData realAnswer = possibleAnswers[currentAnswerIndex];
+
+            possibleAnswers.RemoveAt(currentAnswerIndex);
+
+            List<CellData> chosenAnswers = new List<CellData>();
+
+            for (int i = 0; i < cellsCount; i++)
             {
-                possibleAnswers.Add(cellDataBundle.CellData[i]);
+                if (possibleAnswers.Count == 0) break;
+
+                int randAnswer = Random.Range(0, possibleAnswers.Count);
+
+                chosenAnswers.Add(possibleAnswers[randAnswer]);
+
+                possibleAnswers.RemoveAt(randAnswer);
             }
 
+            chosenAnswers.Insert(Random.Range(0, chosenAnswers.Count), realAnswer);
+
+            return chosenAnswers;
+        }
+
+        private void InitCells(List<CellData> chosenAnswers, int cellsCount, System.Action<Cell> ButtonAction, bool bounceEffect)
+        {
             //Spawn necessary amount of cells
             while (_grid.transform.childCount < cellsCount)
             {
@@ -57,11 +78,7 @@ namespace QuizGame
             {
                 _cells[i].gameObject.SetActive(true);
 
-                int randAnswer = Random.Range(0, possibleAnswers.Count);
-
-                _cells[i].Init(possibleAnswers[randAnswer], ButtonAction, bounceEffect);
-
-                possibleAnswers.RemoveAt(randAnswer);
+                _cells[i].Init(chosenAnswers[i], ButtonAction, bounceEffect);
             }
 
             //Disable extra cells

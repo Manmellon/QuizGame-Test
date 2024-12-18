@@ -35,10 +35,13 @@ namespace QuizGame
 
             int randBundle = Random.Range(0, possibleBundles.Length);
 
-            _UIController.UpdateGrid(
-                levelsTemplate.levels[_currentLevel], possibleBundles[randBundle], bounceEffect);
+            int currentAnswerIndex = _answerChecker.Init(randBundle);
 
-            _answerChecker.Init(randBundle);
+            _UIController.UpdateGrid(
+                levelsTemplate.levels[_currentLevel],
+                possibleBundles[randBundle],
+                currentAnswerIndex,
+                bounceEffect);
         }
     }
 

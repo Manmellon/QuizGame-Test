@@ -21,6 +21,7 @@ namespace QuizGame
 
             _image.sprite = _cellData.Sprite;
             _image.preserveAspect = true;
+            _image.transform.rotation = Quaternion.Euler(0, 0, cellData.OrientationAngle);
 
             _button.onClick.RemoveAllListeners();
 

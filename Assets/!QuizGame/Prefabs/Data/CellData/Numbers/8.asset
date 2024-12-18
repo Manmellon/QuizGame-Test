@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _identifier: 8
   _sprite: {fileID: 3547489320769246608, guid: be28881107f52e24ab29b8b5016bfac4, type: 3}
-  orientationAngle: 90
+  orientationAngle: -90

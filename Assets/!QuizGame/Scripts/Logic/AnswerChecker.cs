@@ -34,7 +34,7 @@ namespace QuizGame
             }
         }
 
-        public void Init(int currentBundleIndex)
+        public int Init(int currentBundleIndex)
         {
             _currentBundleIndex = currentBundleIndex;
 
@@ -43,6 +43,8 @@ namespace QuizGame
             _currentAnswerIndex = _possibleTargets[_currentBundleIndex][possibleAnswerIndex];
 
             _UIController.SetTarget(_possibleBundles, _currentBundleIndex, _currentAnswerIndex);
+
+            return _currentAnswerIndex;
         }
 
         public void CheckAnswer(Cell cell)

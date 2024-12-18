@@ -14,9 +14,9 @@ namespace QuizGame
         [SerializeField]
         private TextMeshProUGUI _targetText;
 
-        public void UpdateGrid(Level level, CellDataBundle cellDataBundle, bool bounceEffect)
+        public void UpdateGrid(Level level, CellDataBundle cellDataBundle, int currentAnswerIndex, bool bounceEffect)
         {
-            _cellsGrid.Init(level, cellDataBundle, _answerChecker.CheckAnswer, bounceEffect);
+            _cellsGrid.Init(level, cellDataBundle, currentAnswerIndex, _answerChecker.CheckAnswer, bounceEffect);
         }
 
         public void SetTarget(CellDataBundle[] possibleBundles, int currentBundleIndex, int currentAnswerIndex)
