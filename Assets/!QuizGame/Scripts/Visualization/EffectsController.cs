@@ -11,41 +11,33 @@ public class EffectsController : MonoBehaviour
     [SerializeField]
     private LevelController _levelController;
 
+    [SerializeField]
+    private ParticleSystem _starEffect;
+
     public void CorrectAnswerEffect(Cell cell)
     {
         cell.objectInsideTransform.localScale = Vector3.zero;
 
-        cell.objectInsideTransform.DOScale(1, 1).SetEase(Ease.OutBounce).onComplete = () => { _levelController.NextLevel(false); };
+        cell.objectInsideTransform.DOScale(1, 1).SetEase(Ease.OutBounce).onComplete = 
+            () => 
+        { 
+            _levelController.NextLevel(false);
+
+            _starEffect.Stop();
+            _starEffect.gameObject.SetActive(false);
+        };
+
+        _starEffect.transform.position = cell.objectInsideTransform.position;
+
+        _starEffect.gameObject.SetActive(true);
+
+        _starEffect.Play();
     }
 
     public void WrongAnswerEffect(Cell cell)
     {
         cell.objectInsideTransform.DOShakePosition(1.0f, new Vector3(20, 0, 0)).SetEase(Ease.InBounce);
     }
-
-    public void StartGameEffect()
-    {
-
-    }
-
-    public void EndGameEffect()
-    {
-        
-    }
-    public void RestartSceneEffect()
-    {
-
-    }
-
-    /*public void FadeIn(Image image, float value, float duration, System.Action EndAction)
-    {
-        Fade(image, value, duration, EndAction);
-    }
-
-    public void FadeOut(Image image, float value, float duration, System.Action EndAction)
-    {
-        Fade(image, value, duration, EndAction);
-    }*/
 
     public void Fade(Image image, float value, float duration, System.Action EndAction)
     {
